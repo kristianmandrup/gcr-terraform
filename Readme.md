@@ -1,4 +1,6 @@
-# Serverless Deployment on Cloud Run using Terraform
+# Importmap Deployer for MFE on Google Cloud Run using Terraform
+
+See also [pulumi-importmap-deployer-ts](https://github.com/kristianmandrup/pulumi-importmap-deployer-ts) for a similar stack deployment using [Pulumi](https://www.pulumi.com)
 
 ## Pre-requisites
 
