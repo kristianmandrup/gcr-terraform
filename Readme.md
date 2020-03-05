@@ -14,11 +14,26 @@ Based on Blog post: [Serverless Deployment on Cloud Run using Terraform](https:/
 
 The infrastructure consists of
 
-- GCR service with auto-scaling to one node maximum
-- storage bucket
-- no authentication
+- GCR service
+- Storage bucket
 
-TODO: add policy for service to write to storage bucket
+### GCR service
+
+- auto-scaling to one node maximum
+- no authentication requirements by default
+
+### Storage bucket
+
+- write access for all users
+
+### Access control
+
+- [google_storage_bucket_access_control](https://www.terraform.io/docs/providers/google/r/storage_bucket_access_control.html)
+- [google_cloud_run_service_iam_policy](https://www.terraform.io/docs/providers/google/r/cloud_run_service_iam.html)
+
+Control access via [members](https://www.terraform.io/docs/providers/google/r/cloud_run_service_iam.html#member-members)
+
+Watch [Secure Policy Management for the Cloud Services Platform](https://www.youtube.com/watch?v=3wsiL1zSFqQ) from Cloud Next '19
 
 ### Create GCR infrastructure
 
