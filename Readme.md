@@ -1,4 +1,6 @@
-# Importmap Deployer for MFE on Google Cloud Run using Terraform
+# MFE importmap-deployer on GCR using Terraform
+
+The importmap deployer is a service required for single-spa Micro Frontends to deploy importmaps
 
 See also [pulumi-importmap-deployer-ts](https://github.com/kristianmandrup/pulumi-importmap-deployer-ts) for a similar stack deployment using [Pulumi](https://www.pulumi.com)
 
