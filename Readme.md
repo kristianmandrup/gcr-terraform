@@ -40,7 +40,7 @@ Variables exposed:
 
 To set a specific location (region)
 
-```
+```sh
 $ terraform apply -var region=us-west-2
 # ...
 ```
@@ -65,7 +65,7 @@ bucket=my-bucket
 Create environment variables with prefix `TF_VAR_` followed by the name of a declared variable.
 
 ```sh
-$ export TF_VAR_project=my-project
+$ export TF_VAR_project=my-cool-project
 $ terraform plan
 # ...
 ```
@@ -90,7 +90,7 @@ $ EXPORT $GCR_CLUSTER_NAME=importmap-deployer
 Build image and deploy to GCR
 
 ```sh
-$ docker build -t gcr.io/$GCR_NAME/$GCR_CLUSTER_NAME live-importmap-deployer
+$ docker build -t gcr.io/$GCR_NAME/$GCR_CLUSTER_NAME importmap-deployer
 # ...
 $ docker push gcr.io/$GCR_NAME/$GCR_CLUSTER_NAME
 # ...
