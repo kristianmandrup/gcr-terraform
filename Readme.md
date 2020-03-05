@@ -77,6 +77,35 @@ $ terraform destroy
 # ...
 ```
 
+## Edit importmap configuration
+
+Edit `importmap-deployer/conf.js` to match your project.
+
+See [import-map-deployer: configuration file](https://github.com/single-spa/import-map-deployer#configuration-file) for documentation on how to configure it
+
+`username` (optional): The username for HTTP auth when calling the `import-map-deployer`. If `username` and `password` are omitted, anyone can update the import map without authenticating. This username is not related to authenticating with S3/Digital Ocean/Other, but rather is the username your CI process will use in its HTTP request to the `import-map-deployer`.
+
+`password` (optional): The password for HTTP auth when calling the `import-map-deployer`. If `username` and `password` are omitted, anyone can update the import map without authenticating. This password is not related to authenticating with S3/Digital Ocean/Other, but rather is the password your CI process will use in its HTTP request to the `import-map-deployer`.
+
+`manifestFormat` (required): A string that is either `importmap` or `sofe`, which indicates whether the `import-map-deployer` is interacting with an import map or a sofe manifest.
+
+`locations` (required): An object specifying one or more "locations" (or "environments") for which you want the `import-map-deployer` to control the import map. The special `default` location is what will be used when no query parameter ?env= is provided in calls to the import-map-deployer. 
+If no `default` is provided, the `import-map-deployer` will create a local file called `import-map.json` that will be used as the import map. The keys in the locations object are the names of environments, and the values are strings that indicate how the `import-map-deployer` should interact with the import map for that environment. 
+
+```js
+module.exports = {
+  username: process.env.HTTP_USERNAME,
+  password: process.env.HTTP_PASSWORD,
+  manifestFormat: 'importmap',
+  locations: {
+    reactMf: 'google://react.microfrontends.app/importmap.json',
+    vueMf: 'google://vue.microfrontends.app/importmap.json',
+    polyglotMf: 'google://polyglot.microfrontends.app/importmap.json',
+    angularMf: 'google://angular.microfrontends.app/importmap.json'
+  }
+};
+```
+
 ## Deploy importmap-deployer image to GCR
 
 Define environment variables
